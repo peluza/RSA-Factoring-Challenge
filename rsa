@@ -1,0 +1,65 @@
+#!/usr/bin/python3
+"""factors
+    """
+from sys import argv
+
+
+def isPrime(num):
+    """isPrime(num)
+
+    Args:
+        num (int): the number interger
+
+    Returns:
+        [boolean]: True is prime or false is prime
+    """
+    if num < 1:
+        return False
+    elif num == 2:
+        return True
+    else:
+        for i in range(2, num):
+            if num % i == 0:
+                return False
+        return True
+
+
+def factory(n=0):
+    """factory(n)
+
+    Args:
+        n (int, optional): Check the factorization of this number
+
+    Returns:
+        int: the last number factors
+    """
+    if (n % 2 == 0):
+        return 2
+    i = 3
+    while i * i <= n:
+        if n % i == 0:
+            return i
+        i += 2
+
+
+def rsa(filename):
+    """factory(filename)
+
+    Args:
+        filename (str):
+    """
+    with open(filename, encoding="utf-8") as my_file:
+        for i in my_file.readlines(1):
+            n = int(i)
+            result_f = factory(n)
+            result_d = n//result_f
+            prime_f = isPrime(result_f)
+            prime_d = isPrime(result_d)
+            if prime_d and prime_f is True:
+                print("{}={}*{}".format(int(n), int(result_d), int(result_f)))
+            else:
+                print("result is not prime")
+
+
+if __name__ == "__main__":
+    rsa(argv[1])
