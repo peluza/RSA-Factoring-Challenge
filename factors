@@ -32,7 +32,7 @@ def factors(filename):
         for i in my_file.readlines():
             n = int(i)
             result = factory(n)
-            print("{}={}*{}".format(int(n), int(n/result), int(result)))
+            print("{}={}*{}".format(int(n), int(n//result), int(result)))
 
 
 if __name__ == "__main__":
