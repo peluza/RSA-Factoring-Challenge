@@ -36,7 +36,7 @@ def factory(n=0):
     if (n % 2 == 0):
         return 2
     i = 3
-    while i * i <= n:
+    while i <= n:
         if n % i == 0:
             return i
         i += 2
@@ -57,8 +57,6 @@ def rsa(filename):
             prime_d = isPrime(result_d)
             if prime_d and prime_f is True:
                 print("{}={}*{}".format(int(n), int(result_d), int(result_f)))
-            else:
-                print("result is not prime")
 
 
 if __name__ == "__main__":
